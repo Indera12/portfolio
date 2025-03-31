@@ -23,7 +23,8 @@ const Navbar = () => {
       const scrollPosition = window.scrollY + 100
 
       for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i] && sections[i].offsetTop <= scrollPosition) {
+        const section = sections[i]
+        if (section !== null && section.offsetTop <= scrollPosition) {
           setActiveSection(navItems[i].id)
           break
         }
