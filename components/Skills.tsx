@@ -34,7 +34,7 @@ const SkillBar = ({ name, level }: { name: string; level: number }) => {
           whileInView={{ width: `${level}%` }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="bg-indigo-500 dark:bg-indigo-400 h-2 rounded-full"
+          className="bg-blue-500 dark:bg-blue-400 h-2 rounded-full"
         />
       </div>
     </div>
@@ -56,34 +56,36 @@ const Skills = () => {
           <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
         </motion.div>
 
-        <div className="mt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm"
-            >
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Languages & Frameworks</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Languages & Frameworks</h3>
               {skills.languages.map((skill, index) => (
                 <SkillBar key={index} name={skill.name} level={skill.level} />
               ))}
-            </motion.div>
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm"
-            >
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Tools & Other Skills</h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Tools & Other Skills</h3>
               {skills.tools.map((skill, index) => (
                 <SkillBar key={index} name={skill.name} level={skill.level} />
               ))}
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

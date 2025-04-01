@@ -25,7 +25,7 @@ const projects = [
   },
   {
     title: 'Spotify Clone',
-    description: 'Developed a Spotify Clone using React.js and Bootstrap, focusing on the frontend interface. Created an interactive and responsive UI with music browsing features, mimicking the original Spotify design. Applied Bootstrap components for consistent styling and ensured a smooth user experience.',
+    description: 'Built a responsive Spotify clone with React.js and Bootstrap, featuring a modern music player interface. Implemented core features including playlist management, music playback controls, and responsive design. Focused on creating an intuitive user experience with smooth transitions and interactive elements.',
     image: '/assets/music.png',
     technologies: ['React.js', 'Bootstrap', 'UI/UX', 'Responsive Design']
   }
@@ -58,7 +58,9 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
+        <div className={`transition-all duration-300 ease-in-out md:${isHovered ? 'opacity-100' : 'opacity-0'} opacity-100`}>
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{project.description}</p>
+        </div>
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech, techIndex) => (
             <span
