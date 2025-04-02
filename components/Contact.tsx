@@ -78,7 +78,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    console.log("Form submitted")
+    
     if (!validateForm()) {
+      console.log("Validation failed:", errors)
       return
     }
 
@@ -95,13 +98,16 @@ const Contact = () => {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to send message')
+        const errorResponse = await response.json()
+        console.error("Response not OK:", errorResponse)
+        throw new Error(errorResponse.message || 'Failed to send message')
       }
 
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
       setErrors({})
     } catch (error) {
+      console.error("Error occurred:", error)
       setStatus('error')
       setErrorMessage('Failed to send message. Please try again later.')
     }
