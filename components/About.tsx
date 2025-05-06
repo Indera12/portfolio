@@ -18,54 +18,39 @@ const About = () => {
           <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="mt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="relative"
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm"
           >
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-              <div className="space-y-4">
-                <p className="text-gray-600 dark:text-gray-300">
-                  I'm a Frontend Developer focused on building modern web applications. 
-                  My foundation in computer science supports my commitment to continuous learning and 
-                  adapting to new technologies. Over the past year, I've specialized in React.js, Next.js, 
-                  and Tailwind CSS, developing responsive and scalable web applications. I prioritize 
-                  user-friendly interfaces and optimized performance. I'm skilled in component integration 
-                  and have a strong attention to detail. I enjoy collaborative work and strive to improve 
-                  development processes. My goal is to contribute to innovative projects, delivering 
-                  effective user experiences. I'm dedicated to expanding my skills and staying current 
-                  with industry trends, ultimately creating web applications that users find valuable.
-                </p>
-                <p className="text-gray-600 dark:text-gray-300">
-                In my current role, I've cultivated strong collaborative relationships with design and 
-                backend teams, resulting in the delivery of seamless and intuitive user experiences. 
-                My contributions go beyond coding; I proactively troubleshoot and efficiently resolve 
-                complex frontend issues, ensuring optimal application performance. I actively support
-                colleagues by sharing knowledge and assisting with technical challenges. I prioritize 
-                clear communication and efficient problem-solving, streamlining workflows in agile 
-                environments. My focus is on delivering high-quality, user-centric solutions that align
-                with business objectives. I am committed to continuous technical improvement and 
-                fostering a collaborative team dynamic, ultimately creating valuable and enjoyable user
-                experiences.
-                </p>
-              </div>
-              {/* <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm">
-                  React.js
+            <div className="space-y-6">
+              <p className="text-gray-600 dark:text-gray-300">
+                I am a passionate Frontend Developer with expertise in building modern web applications.
+                My journey in software development began with a strong foundation in computer science,
+                and I've been continuously learning and evolving with the latest technologies.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300">
+                I specialize in creating responsive, user-friendly applications using React, Next.js,
+                and various modern web technologies. My approach combines clean code practices with
+                efficient problem-solving to deliver high-quality solutions.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm">
+                  React
                 </span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm">
                   Next.js
                 </span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm">
                   TypeScript
                 </span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm">
                   Tailwind CSS
                 </span>
-              </div> */}
+              </div>
             </div>
           </motion.div>
         </div>
