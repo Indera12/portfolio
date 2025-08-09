@@ -4,6 +4,24 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+const featuredProjects = [
+  {
+    title: 'SIA - Shankar IAS Academy',
+    description: 'I have developed this particular page for Shankar IAS Academy, using NextJs. The page includes features like branch details, course offerings and an enquiry form for prospective students.',
+    links: [
+      {label: '', url: 'https://www.shankariasacademy.com/tnpsc-admissions/'}
+    ]
+  },
+  {
+    title: 'Queensland Amusement Park',
+    description: 'I built the gallery and contact pages for Queensland Amusement Park using NextJs and strapi. The design is responsive and user-friendly, ensuring easy access to information for visitors.',
+    links: [
+      { label: 'Contact Page', url: 'https://www.queenslandamusementpark.com/contact' },
+      { label: 'Gallery Page', url: 'https://www.queenslandamusementpark.com/ourgallery' }
+    ]
+  }
+]
+
 const projects = [
   {
     title: 'Customer Management Portal',
@@ -30,6 +48,26 @@ const projects = [
     technologies: ['React.js', 'Bootstrap', 'UI/UX', 'Responsive Design']
   }
 ]
+
+const FeaturedProjectCard = ({ project }: { project: any }) => (
+  <div className="relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 mb-6 border border-gray-200 dark:border-gray-800">
+    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{project.description}</p>
+    <div className="flex flex-wrap gap-3 mt-2">
+      {project.links.map((link: any, idx: number) => (
+        <a
+          key={idx}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:underline transition"
+        >
+          {link.label || 'View Project'}
+        </a>
+      ))}
+    </div>
+  </div>
+)
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -90,7 +128,11 @@ const Projects = () => {
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Projects</h2>
           <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
         </motion.div>
-
+          <div className="mb-10">
+    {featuredProjects.map((project) => (
+      <FeaturedProjectCard key={project.title} project={project} />
+    ))}
+  </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />

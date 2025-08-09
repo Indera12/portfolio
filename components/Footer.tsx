@@ -27,11 +27,13 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-4">About Me</h3>
+            <h3 className="text-lg font-semibold mb-4">About this website</h3>
             <p className="text-gray-400">
-              A passionate software developer dedicated to creating elegant solutions
-              to complex problems. Always eager to learn and grow in the ever-evolving
-              world of technology.
+              I have created this portfolio to showcase my skills and projects. It is built with Next.js, Tailwind CSS, and Framer Motion for animations.
+              <br />
+              Feel free to explore my work and connect with me on linkedin or through mail.
+              <br />
+              If you have any questions or feedback, don't hesitate to reach out!
             </p>
           </motion.div>
 

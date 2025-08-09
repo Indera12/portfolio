@@ -209,7 +209,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex flex-shrink-0 items-center justify-center">
                   <svg
                     className="w-6 h-6 text-blue-600 dark:text-blue-400"
                     fill="none"
@@ -226,7 +226,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium text-gray-900 dark:text-white">Employment Status</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Looking for opportunities in Pune, Ahmedabad, Kolkata</p>
+                  <p className="text-gray-600 dark:text-gray-300">Seeking opportunities to grow professionally.</p>
                 </div>
               </div>
             </div>
