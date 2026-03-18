@@ -4,40 +4,36 @@ import { motion } from 'framer-motion'
 
 const skills = {
   languages: [
-    { name: 'JavaScript', level: 95 },
-    { name: 'TypeScript', level: 90 },
-    { name: 'React.js', level: 95 },
-    { name: 'Next.js', level: 90 },
-    { name: 'Tailwind CSS', level: 95 },
-    { name: 'HTML', level: 95 },
-    { name: 'CSS', level: 95 }
+    'JavaScript',
+    'TypeScript',
+    'React.js',
+    'Next.js',
+    'Tailwind CSS',
+    'HTML',
+    'CSS'
   ],
   tools: [
-    { name: 'Git', level: 90 },
-    { name: 'Webpack', level: 85 },
-    { name: 'Responsive Design', level: 95 },
-    { name: 'Cross-browser Compatibility', level: 90 },
-    { name: 'RESTful APIs', level: 90 }
+    'Git',
+    'Webpack',
+    'Responsive Design',
+    'Cross-browser Compatibility',
+    'RESTful APIs'
   ]
 }
 
-const SkillBar = ({ name, level }: { name: string; level: number }) => {
+const SkillTag = ({ name, index }: { name: string; index: number }) => {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{level}%</span>
-      </div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="bg-indigo-500 dark:bg-indigo-400 h-2 rounded-full"
-        />
-      </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+      viewport={{ once: true }}
+      className="inline-block"
+    >
+      <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 rounded-full text-sm font-medium hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors duration-200">
+        {name}
+      </span>
+    </motion.div>
   )
 }
 
@@ -63,12 +59,14 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm"
+              className="bg-white-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Languages & Frameworks</h3>
-              {skills.languages.map((skill, index) => (
-                <SkillBar key={index} name={skill.name} level={skill.level} />
-              ))}
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Languages & Frameworks</h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.languages.map((skill, index) => (
+                  <SkillTag key={index} name={skill} index={index} />
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
@@ -76,12 +74,14 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm"
+              className="bg-white-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Tools & Other Skills</h3>
-              {skills.tools.map((skill, index) => (
-                <SkillBar key={index} name={skill.name} level={skill.level} />
-              ))}
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Tools & Other Skills</h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.tools.map((skill, index) => (
+                  <SkillTag key={index} name={skill} index={index} />
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
