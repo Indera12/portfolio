@@ -1,25 +1,42 @@
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Experience from '@/components/Experience'
-import Skills from '@/components/Skills'
+import TechStack from '@/components/TechStack'
 import Projects from '@/components/Projects'
+import Experience from '@/components/Experience'
+import CurrentlyExploring from '@/components/CurrentlyExploring'
+import Dashboard from '@/components/Dashboard'
+import LessonsLearned from '@/components/LessonsLearned'
+import FunFacts from '@/components/FunFacts'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import HerowithPic from '@/components/HerowithPic'
+import CursorEffect from '@/components/CursorEffect'
+import LoadingScreen from '@/components/LoadingScreen'
+import EasterEgg from '@/components/EasterEgg'
+
+const Terminal = dynamic(() => import('@/components/Terminal'), { ssr: false })
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <LoadingScreen />
+      <CursorEffect />
+      <EasterEgg />
       <Navbar />
-      
-      <HerowithPic />
+
+      <Hero />
       <About />
-      <Experience />
-      <Skills />
+      <TechStack />
       <Projects />
+      <Experience />
+      <Terminal />
+      <CurrentlyExploring />
+      <Dashboard />
+      <LessonsLearned />
+      <FunFacts />
       <Contact />
       <Footer />
     </main>
   )
-} 
+}

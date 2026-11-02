@@ -1,89 +1,60 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { experience } from '@/lib/data'
 
-const experiences = [
-  {
-    title: 'Software Developer',
-    company: 'Vinbytes Technologies Pvt Ltd',
-    period: 'Jul 2023 - Present',
-    description: [
-      'Developed and maintained frontend features using React.js and Next.js, ensuring optimal performance and usability.',
-      'Applied Tailwind CSS to build responsive, modern UIs, enhancing the user experience across devices.',
-      'Collaborated with cross-functional teams to implement design solutions and optimize web performance.',
-      'Ensured cross-browser compatibility and resolved UI issues efficiently.',
-      'Adapted quickly to new frameworks and tools, continuously enhancing development practices.'
-    ],
-    technologies: ['React.js', 'Next.js', 'Tailwind CSS', 'UI/UX', 'Performance Optimization']
-  },
-  {
-    title: 'Software Intern',
-    company: 'Shiash Info Solutions Pvt Ltd',
-    period: 'Oct 2022 - Dec 2022',
-    description: [
-      'Gained hands-on experience in Python programming and web development (HTML, CSS, JavaScript).',
-      'Collaborated with team members on real-world projects, contributing to successful deliveries.'
-    ],
-    technologies: ['Python', 'HTML', 'CSS', 'JavaScript']
-  }
-]
-
-const Experience = () => {
+export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
-          <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
-        </motion.div>
+    <section id="experience" className="section">
+      <div className="container">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <span className="text-sm font-semibold tracking-widest text-lavender-600 uppercase">Journey</span>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
+            Career <span className="gradient-text">timeline</span>
+          </h2>
+        </div>
 
-        <div className="space-y-12">
-          {experiences.map((experience, index) => (
+        <div className="relative max-w-3xl mx-auto">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-lavender-300 via-sage-300 to-transparent" />
+          {experience.map((e, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+              key={e.title + e.org}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative pl-8 border-l-2 border-blue-600 dark:border-blue-400"
+              transition={{ delay: i * 0.1 }}
+              className={`relative mb-10 pl-12 md:pl-0 ${
+                i % 2 === 0 ? 'md:pr-[52%] md:text-right' : 'md:pl-[52%]'
+              }`}
             >
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-400"></div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  {experience.title}
-                </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
-                  {experience.company}
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  {experience.period}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {experience.description.join('\n')}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {experience.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
+              <div className="absolute left-4 md:left-1/2 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-lavender-500 ring-4 ring-cream-50 shadow-glow" />
+              <div className="glass rounded-2xl p-5">
+                <p className="text-xs font-semibold text-lavender-600 uppercase tracking-wider">{e.period}</p>
+                <h3 className="mt-1 font-display text-lg font-bold text-ink-900">{e.title}</h3>
+                <p className="text-sm text-ink-500">{e.org}</p>
+                <ul className={`mt-3 space-y-1.5 text-sm text-ink-700 ${i % 2 === 0 ? 'md:ml-auto' : ''}`}>
+                  {e.points.map((pt) => (
+                    <li key={pt} className="flex gap-2">
+                      <span className="text-sage-500">•</span>
+                      <span>{pt}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 glass rounded-3xl p-6 md:p-8 max-w-3xl mx-auto">
+          <h3 className="font-display text-xl font-bold mb-3">Achievements</h3>
+          <ul className="space-y-2 text-sm text-ink-700">
+            <li>🏆 Third prize — Code Debugging Competition, Kings Ignite 2021.</li>
+            <li>⚡ Delivered a React 19 website within one month.</li>
+            <li>🚀 Urgent project delivery under tight deadlines.</li>
+            <li>👥 Leading a 5-member development team on EMS.</li>
+          </ul>
         </div>
       </div>
     </section>
   )
 }
-
-export default Experience 

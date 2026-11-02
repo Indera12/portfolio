@@ -81,6 +81,7 @@ const HerowithPic = () => {
                   src="/assets/profile.jpg"
                   alt="Indera Salil Bharati"
                   fill
+                  sizes="(max-width: 768px) 256px, 288px"
                   className="object-cover"
                   priority
                 />

@@ -3,39 +3,98 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg: #fdfbf7;
+    --bg-soft: #faf6ef;
+    --glass: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.6);
+  }
   html {
     scroll-behavior: smooth;
   }
-  
   body {
-    @apply text-gray-900 bg-white;
+    @apply bg-cream-50 text-ink-900 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  ::selection {
+    @apply bg-lavender-200 text-ink-900;
   }
 }
 
 @layer components {
-  .section-padding {
-    @apply py-20;
+  .glass {
+    @apply backdrop-blur-xl bg-white/50 border border-white/60 shadow-glass;
   }
-  
+  .glass-strong {
+    @apply backdrop-blur-2xl bg-white/70 border border-white/70 shadow-glass;
+  }
+  .glass-dark {
+    @apply backdrop-blur-xl bg-ink-900/40 border border-white/10;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-lavender-500 via-blush-400 to-sage-400;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-ink-900 text-white font-medium shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full glass text-ink-900 font-medium hover:bg-white/70 transition-all duration-300;
+  }
+  .section {
+    @apply py-20 md:py-28;
+  }
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .card {
+    @apply glass rounded-3xl p-6 md:p-8;
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #faf6ef;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #c4b5fd, #86efac);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa, #4ade80);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-} 
+/* Subtle grid background */
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.08) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Dark mode overrides (so the theme toggle produces a visible change) */
+.dark body {
+  background-color: #1f1b2e;
+  color: #faf6ef;
+}
+.dark .bg-cream-50 { background-color: #1f1b2e !important; }
+.dark .bg-cream-100 { background-color: #2d2840 !important; }
+.dark .text-ink-900 { color: #faf6ef !important; }
+.dark .text-ink-800 { color: #ede9fe !important; }
+.dark .text-ink-700 { color: #c4b5fd !important; }
+.dark .text-ink-600 { color: #a78bfa !important; }
+.dark .text-ink-500 { color: #8a8499 !important; }
+.dark .glass {
+  background-color: rgba(45, 40, 64, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.dark .glass-strong {
+  background-color: rgba(45, 40, 64, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.dark .bg-white\/50, .dark .bg-white\/70, .dark .bg-white\/60 {
+  background-color: rgba(45, 40, 64, 0.6) !important;
+}
+.dark .border-white\/60, .dark .border-white\/40, .dark .border-white\/70 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
