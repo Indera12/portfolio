@@ -49,7 +49,6 @@ export default function Experience() {
           <h3 className="font-display text-xl font-bold mb-3">Achievements</h3>
           <ul className="space-y-2 text-sm text-ink-700">
             <li>🏆 Third prize — Code Debugging Competition, Kings Ignite 2021.</li>
-            <li>⚡ Delivered a React 19 website within one month.</li>
             <li>🚀 Urgent project delivery under tight deadlines.</li>
             <li>👥 Leading a 5-member development team on EMS.</li>
           </ul>

@@ -104,7 +104,6 @@ export const experience = [
     points: [
       'Building frontend features with React.js and Next.js.',
       'Leading a team of 5 on the Exam Management System.',
-      'Delivered a React 19 website within one month.',
       'Tailwind CSS, reusable components, performance optimization.',
     ],
   },
@@ -128,10 +127,9 @@ export const experience = [
 export const exploring = ['Node.js', 'Full-stack development', 'AWS / Cloud', 'AI-powered dev tools']
 
 export const stats = [
-  { label: 'Years of experience', value: '3' },
+  { label: 'Years of experience', value: '3+' },
   { label: 'Team members led', value: '5' },
   { label: 'Projects shipped', value: '4+' },
-  { label: 'React 19 sites in 1 month', value: '1' },
 ]
 
 export const lessons = [

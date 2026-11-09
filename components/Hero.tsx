@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg text-ink-600 max-w-xl leading-relaxed"
           >
-            Frontend Developer with nearly 3 years of experience building SaaS products,
+            Frontend Developer with 3+ years of experience building SaaS products,
             leading teams, and crafting interfaces people actually enjoy using. React, Next.js,
             TypeScript — and a soft spot for delightful details.
           </motion.p>

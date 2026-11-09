@@ -26,7 +26,7 @@ export default function LoadingScreen() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <div className="font-display text-3xl font-bold gradient-text">Indera.dev</div>
+            <div className="font-display text-3xl font-bold gradient-text">Indera</div>
             <div className="mt-4 flex justify-center gap-1">
               {[0, 1, 2].map((i) => (
                 <motion.span
