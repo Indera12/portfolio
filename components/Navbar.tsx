@@ -39,7 +39,7 @@ export default function Navbar() {
         }`}>
           <Link href="#hero" className="font-display font-bold text-lg tracking-tight">
             <span className="gradient-text">Indera</span>
-            <span className="text-ink-500">.dev</span>
+            {/* <span className="text-ink-500">.dev</span> */}
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
